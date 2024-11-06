@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1= title
+  if genre_list.length
+    ul
+      each genre in genre_list
+        li
+          - const genreUrl = genre.url  || `/catalog/genre/${genre._id}`
+          a(href=genreUrl) #{genre.name || genre.name}
+  else
+    p There are no Genres
